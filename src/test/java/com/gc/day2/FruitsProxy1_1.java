@@ -4,11 +4,11 @@ package com.gc.day2;
  * 静态代理
  *
  */
-public class FruitsProxy implements IFruits{
+public class FruitsProxy1_1 implements IFruits{
 
     private IFruits fruits;
 
-    public FruitsProxy(IFruits fruits){
+    public FruitsProxy1_1(IFruits fruits){
         this.fruits = fruits;
     }
     @Override

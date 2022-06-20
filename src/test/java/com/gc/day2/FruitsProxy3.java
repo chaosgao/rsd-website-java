@@ -1,39 +1,42 @@
 package com.gc.day2;
 
-import java.lang.reflect.InvocationHandler;
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
+
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
-public class FruitsProxy3 implements InvocationHandler {
-
+/**
+ * GCLib 动态代理
+ */
+public class FruitsProxy3 implements MethodInterceptor {
+    // 被代理对象
     private IFruits fruits;
 
-    /**
-     *
-     * @param iFruits
-     * @return
-     */
     public IFruits getProxy(IFruits iFruits){
         this.fruits = iFruits;
 
-        IFruits o = (IFruits)Proxy.newProxyInstance(fruits.getClass().getClassLoader(), fruits.getClass().getInterfaces(), this);
-        return o;
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(IFruits.class);
+        enhancer.setCallback(this);
+        return (IFruits) enhancer.create();
     }
 
     /**
-     *
-     * @param proxy
-     * @param method
-     * @param args
-     * @return
-     * @throws Throwable
+     * 被代理对象执行的方法
+     * @param o 代理对象
+     * @param method 代理类的方法
+     * @param objects 代理类的方法参数
+     * @param methodProxy 代理对象的方法
+     * @return 代理对象的结果
+     * @throws Throwable 异常
      */
-
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("·····之前有东西·····");
-        Object obj = method.invoke(fruits, args);
-        System.out.println("·····之后也有东西·····");
-        return obj;
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println("开始");
+        Object invoke = method.invoke(fruits, objects);
+        System.out.println(invoke);
+        System.out.println("结束");
+        return invoke;
     }
 }
