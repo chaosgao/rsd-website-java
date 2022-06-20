@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rsd.mapper.ISysUserMapper">
+    <select id="queryList"  resultType="com.rsd.bean.SysUser">
+        select b1.*,b2.name role_name from bu_sys_user b1 left join bu_sys_role b2 on b1.role_id=b2.id
+<!--        <where>-->
+<!--            <if test="searchLoginName!= null and searchLoginName!=">-->
+<!--                and login_name like coucat('%',#{searchLoginName},'%')-->
+<!--            </if>-->
+<!--            <if test="searchRealName!= null and searchRealName!=">-->
+<!--                and real_name like coucat('%',#{searchRealName},'%')-->
+<!--            </if>-->
+<!--            <if test="searchSex!= null and searchSex!=">-->
+<!--                and sex = coucat('%',#{searchSex},'%')-->
+<!--            </if>-->
+<!--            <if test="searchTel!= null and searchTel!= ">-->
+<!--                and tel like coucat('%',#{searchTel},'%')-->
+<!--            </if>-->
+<!--            <if test="searchRoleId!= null and searchRoleId!=">-->
+<!--                and role_id = coucat('%',#{searchRoleId},'%')-->
+<!--            </if>-->
+
+<!--        </where>-->
+        order by id desc
+    </select>
+</mapper>
