@@ -1,7 +1,7 @@
-package com.gc.day2;
+package com.rsd.day2;
 
 /**
- * 静态代理
+ * 静态代理 （构造器）
  *
  */
 public class FruitsProxy1_1 implements IFruits{

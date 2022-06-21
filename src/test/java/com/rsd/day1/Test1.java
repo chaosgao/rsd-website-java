@@ -1,4 +1,4 @@
-package com.gc.day1;
+package com.rsd.day1;
 
 import com.rsd.bean.SysUser;
 import com.rsd.service.ISysUserService;

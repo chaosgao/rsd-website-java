@@ -1,4 +1,4 @@
-package com.gc.day2;
+package com.rsd.day2;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

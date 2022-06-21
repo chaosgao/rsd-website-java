@@ -1,4 +1,4 @@
-package com.gc.day2;
+package com.rsd.day2;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;

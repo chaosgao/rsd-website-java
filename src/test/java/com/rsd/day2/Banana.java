@@ -1,4 +1,4 @@
-package com.gc.day2;
+package com.rsd.day2;
 
 public class Banana implements IFruits{
     @Override

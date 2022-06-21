@@ -1,4 +1,4 @@
-package com.gc.day2;
+package com.rsd.day2;
 
 /**
  * 静态代理   静态属性和静态方法
