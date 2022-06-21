@@ -4,21 +4,35 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:annotation-config />
+    <context:annotation-config/>
     <context:component-scan base-package="com.rsd.service.impl"/>
-    <context:component-scan base-package="com.rsd.controller" />
+    <context:component-scan base-package="com.rsd.controller"/>
 
     <!--放行所有静态资源-->
-    <mvc:default-servlet-handler />
-    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+    <bean id="beforeAdvice" class="com.rsd.aop.BeforeAdvice"/>
+    <bean id="afterAdvice" class="com.rsd.aop.AfterAdvice"/>
+    <bean id="aroundAdvice" class="com.rsd.aop.AroundAdvice"/>
+
+    <aop:config>
+        <aop:pointcut id="controller" expression="execution(* com.rsd.controller.*.*(..))"/>
+        <aop:advisor advice-ref="beforeAdvice" pointcut-ref="controller"/>
+        <aop:advisor advice-ref="afterAdvice" pointcut-ref="controller"/>
+        <aop:advisor advice-ref="aroundAdvice" pointcut-ref="controller"/>
+    </aop:config>
 
     <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -39,7 +53,7 @@
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor"/><!--分页插件-->
-                <bean class="com.gc.interceptor.UpdateInterceptor"/> <!--时间自动插入和修改-->
+                <bean class="com.rsd.interceptor.UpdateInterceptor"/> <!--时间自动插入和修改-->
             </array>
         </property>
     </bean>

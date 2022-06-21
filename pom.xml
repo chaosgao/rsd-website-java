@@ -96,7 +96,12 @@
             <artifactId>java-jwt</artifactId>
             <version>3.19.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.9</version>
+            <scope>runtime</scope>
+        </dependency>
 
 
     </dependencies>
