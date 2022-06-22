@@ -4,13 +4,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:annotation-config/>
     <context:component-scan base-package="com.rsd.service.impl"/>
@@ -19,6 +22,32 @@
     <!--放行所有静态资源-->
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+    <bean id="beforeAdvice" class="com.rsd.aop.BeforeAdvice"/>
+    <bean id="afterAdvice" class="com.rsd.aop.AfterAdvice"/>
+    <bean id="aroundAdvice" class="com.rsd.aop.AroundAdvice"/>
+    <bean id="threeLinks" class="com.rsd.aop.ThreeLinks" />
+
+    <!-- 使用的是Aspectj的AOP功能，增加AOP注解标签的使用-->
+    <aop:config>
+        <aop:pointcut id="controller" expression="execution(* com.rsd.controller.*.*(..))"/>
+        <aop:advisor advice-ref="beforeAdvice" pointcut-ref="controller"/>
+        <aop:advisor advice-ref="afterAdvice" pointcut-ref="controller"/>
+        <aop:advisor advice-ref="aroundAdvice" pointcut-ref="controller"/>
+    </aop:config>
+
+    <!--使用的是spring AOP功能，但是在解析execution要借助aspectj.jar包来完成，所以需要下载相应的JAR包文件（aspectjweaver.jar）-->
+    <aop:config>
+        <aop:aspect ref="threeLinks">
+            <aop:before method="inform1" pointcut-ref="controller"/>
+            <aop:after method="inform2" pointcut-ref="controller" />
+            <aop:around method="inform3" pointcut-ref="controller" />
+        </aop:aspect>
+    </aop:config>
+
+    <!--使用的是Aspectj的AOP功能，增加AOP注解标签的使用-->
+    <aop:aspectj-autoproxy />
+    <context:component-scan base-package="com.rsd.aop" />
 
     <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
