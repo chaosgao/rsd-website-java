@@ -28,12 +28,12 @@ public class UpdateInterceptor implements Interceptor {
                 }catch (NoSuchMethodException e){
 
                 }
-                try {
-                    Method method = clazz.getMethod("setBirthTime",Date.class);
-                    method.invoke(arg,new Date());
-                }catch (NoSuchMethodException e){
-
-                }
+//                try {
+//                    Method method = clazz.getMethod("setBirthTime",Date.class);
+//                    method.invoke(arg,new Date());
+//                }catch (NoSuchMethodException e){
+//
+//                }
                 try {
                     Method method = clazz.getMethod("setUpdateTime",Date.class);
                     method.invoke(arg,new Date());

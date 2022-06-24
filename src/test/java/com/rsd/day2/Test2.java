@@ -14,7 +14,7 @@ package com.rsd.day2;
 //import java.util.List;
 //
 //@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:spring.xml")
+//@ContextConfiguration("classpath:test.xml")
 public class Test2 {
 //
 //    @Autowired

@@ -17,4 +17,6 @@ public interface ISysFunctionService {
 
     void insert(SysFunction sysFunction);
 
+    void moreDelete(Integer id);
+
 }

@@ -5,6 +5,7 @@ import com.rsd.mapper.ISysFunctionMapper;
 import com.rsd.service.ISysFunctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -37,5 +38,14 @@ public class SysFunctionServiceImpl implements ISysFunctionService {
     @Override
     public void insert(SysFunction sysFunction) {
         sysFunctionMapper.insert(sysFunction);
+    }
+
+    @Override
+    @Transactional
+    public void moreDelete(Integer id) {
+        sysFunctionMapper.deleteById(id);
+//        int i = 5 / 0;
+
+        sysFunctionMapper.deleteById(id + 1);
     }
 }

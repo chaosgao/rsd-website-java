@@ -36,7 +36,7 @@ public class Test1 {
 //    @Test
 //    public void queryList(){
 //
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("test.xml");
 //        ISysUserMapper sysUserMapper = context.getBean(ISysUserMapper.class);
 //        List<SysUser> list = sysUserMapper.queryList();
 //
