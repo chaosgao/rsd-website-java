@@ -15,7 +15,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:annotation-config/>
@@ -30,9 +30,9 @@
 
     <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/rsd_website"/>
+        <property name="url" value="jdbc:mysql://139.9.116.29:3306/rsd_website"/>
         <property name="username" value="root"/>
-        <property name="password" value="123456"/>
+        <property name="password" value="Gao_123456"/>
     </bean>
 
     <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -51,7 +51,7 @@
         </property>
         <property name="plugins">
             <array>
-                <bean class="com.github.pagehelper.PageInterceptor"/><!--分页插件-->
+<!--                <bean class="com.github.pagehelper.PageInterceptor"/>&lt;!&ndash;分页插件&ndash;&gt;-->
                 <bean class="com.rsd.interceptor.UpdateInterceptor"/> <!--时间自动插入和修改-->
             </array>
         </property>

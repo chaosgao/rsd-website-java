@@ -33,4 +33,11 @@ public class BehaviorImpl implements IBehaviorDAO {
         List<Behavior> list = jdbcTemplate.query(sql, mapper);
         return list;
     }
+
+    @Override
+    public List<Behavior> list() {
+        String sql = "select * from bu_behavior";
+        List<Behavior> list = jdbcTemplate.query(sql, mapper);
+        return list;
+    }
 }

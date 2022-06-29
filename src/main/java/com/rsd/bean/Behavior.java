@@ -2,6 +2,8 @@ package com.rsd.bean;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Behavior {
 
@@ -11,4 +13,5 @@ public class Behavior {
 
     private Integer fatherId;
 
+    private List<Behavior> fatherList;
 }

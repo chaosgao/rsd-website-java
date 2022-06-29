@@ -8,4 +8,6 @@ public interface IBehaviorDAO {
 
     List<Behavior> getByFatherId(Integer fatherId);
 
+    List<Behavior> list();
+
 }

@@ -24,6 +24,6 @@ public class Test1 {
 
     @Test
     public  void test2(){
-        sysUserService.deleteById(51);
+        sysUserService.deleteById(1);
     }
 }
