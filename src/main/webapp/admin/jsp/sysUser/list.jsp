@@ -8,8 +8,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/admin/js/jquery.js"></script>
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery.js"></script>
 
     <script type="text/javascript">
         function toUpdatePage(id) {
@@ -58,7 +58,7 @@
 
     <ul class="toolbar1">
         <li onclick="toAddPage();" style="line-height:28px; height:28px;margin-top: 5px;margin-right: 8px;cursor: pointer"; >
-            <span><img src="/admin/images/t01.png" width="18" height="18" /></span>添加</li>
+            <span><img src="${pageContext.request.contextPath}/admin/images/t01.png" width="18" height="18" /></span>添加</li>
     </ul>
 </div>
 
@@ -138,7 +138,7 @@
         <div class="tiptop"><span>提示信息</span><a></a></div>
 
         <div class="tipinfo">
-            <span><img src="/admin/images/ticon.png" /></span>
+            <span><img src="${pageContext.request.contextPath}/admin/images/ticon.png" /></span>
             <div class="tipright">
                 <p>是否确认对信息的修改 ？</p>
                 <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
