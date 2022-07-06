@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
     <div class="formtitle"><span>基本信息</span></div>
 
-    <form action="/sysFunction/doUpdate" method="post">
+    <form action="${pageContext.request.contextPath}/sysFunction/doUpdate" method="post">
         <input type="hidden" name="id" value="${sysFunction.id}" />
         <ul class="forminfo">
             <li><label>权限名称</label><input name="name" type="text" class="dfinput" value="${sysFunction.name}" /><i>请输入权限名称</i></li>

@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 
     <div class="formtitle"><span>基本信息</span></div>
 
-    <form action="/sysUser/doUpdate" method="post">
+    <form action="${pageContext.request.contextPath}/sysUser/doUpdate" method="post">
         <input type="hidden" name="id" value="${sysUser.id}" />
         <ul class="forminfo">
             <li><label>登录名称</label><input name="loginName" type="text" class="dfinput" value="${sysUser.loginName}" /><i>登录名称只支持手机号</i></li>

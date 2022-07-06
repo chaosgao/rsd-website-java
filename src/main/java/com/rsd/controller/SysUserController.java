@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-
 @Controller
 @RequestMapping("sysUser")
 public class SysUserController {
@@ -72,7 +71,7 @@ public class SysUserController {
     }
     @RequestMapping(value = "toAddPage",method = RequestMethod.GET)
     public ModelAndView toAddPage(){
-        ModelAndView modelAndView = new ModelAndView("/admin/jsp/sysUser/add.jsp");
+        ModelAndView modelAndView = new ModelAndView("/admin/jsp/sysUser/form.jsp");
         List<SysRole> sysRoleList = sysRoleService.queryList();
         modelAndView.addObject("sysRoleList",sysRoleList);
         return modelAndView;

@@ -13,15 +13,15 @@
 
     <script type="text/javascript">
         function toUpdatePage(id) {
-            location.href="/sysUser/toUpdatePage/"+id;
+            location.href="${pageContext.request.contextPath}/sysUser/toUpdatePage/"+id;
         }
         function doDelete(id) {
             if (confirm("您确定删除吗？")){
-                window.location.href = "/sysUser/delete/"+id;
+                window.location.href = "${pageContext.request.contextPath}/sysUser/delete/"+id;
             }
         }
         function toAddPage() {
-            location.href = "/sysUser/toAddPage";
+            location.href = "${pageContext.request.contextPath}/sysUser/toAddPage";
 
         }
 
@@ -47,7 +47,6 @@
 </head>
 
 <body>
-
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -73,24 +72,24 @@
             <li><span><img src="/admin/images/t04.png" /></span>统计</li>
         </ul>
         -->
-    <form action="/sysUser/list/1" method="get" >
-        &emsp;
-        <input type="search" name="searchLoginName" title="请输入账号" placeholder="账号" value="${searchSysUser.searchLoginName}"/>&emsp;
-        <input type="search" name="searchRealName" title="请输入姓名" placeholder="姓名" value="${searchSysUser.searchRealName}"/>&emsp;
-        <select name="searchSex">&emsp;
-        <option value="">请选择性别</option>
-        <option value="0"${searchSysUser.searchSex=="0"?"selected":""}>男</option>
-        <option value="1"${searchSysUser.searchSex=="1"?"selected":""}>女</option>
-        </select>
-        <select name="searchRoleId">&emsp;
-            <option value="">请选择权限</option>
-            <c:forEach items="${sysRoleList}" var="sysRole">
-                <option value="${sysRole.id}"${sysRole.id==searchSysUser.searchRoleId?"checked='checked'":""}>${sysRole.name}</option>
-            </c:forEach>
-        </select>&emsp;
-        <input type="search" name="searchTel" title="请输入电话" placeholder="电话" value="${searchSysUser.searchTel}"/>&emsp;
-        <input type="submit" value="搜索"/>
-    </form>
+<%--    <form action="/sysUser/list/1" method="get" >--%>
+<%--        &emsp;--%>
+<%--        <input type="search" name="searchLoginName" title="请输入账号" placeholder="账号" value="${searchSysUser.searchLoginName}"/>&emsp;--%>
+<%--        <input type="search" name="searchRealName" title="请输入姓名" placeholder="姓名" value="${searchSysUser.searchRealName}"/>&emsp;--%>
+<%--        <select name="searchSex">&emsp;--%>
+<%--        <option value="">请选择性别</option>--%>
+<%--        <option value="0"${searchSysUser.searchSex=="0"?"selected":""}>男</option>--%>
+<%--        <option value="1"${searchSysUser.searchSex=="1"?"selected":""}>女</option>--%>
+<%--        </select>--%>
+<%--        <select name="searchRoleId">&emsp;--%>
+<%--            <option value="">请选择权限</option>--%>
+<%--            <c:forEach items="${sysRoleList}" var="sysRole">--%>
+<%--                <option value="${sysRole.id}"${sysRole.id==searchSysUser.searchRoleId?"checked='checked'":""}>${sysRole.name}</option>--%>
+<%--            </c:forEach>--%>
+<%--        </select>&emsp;--%>
+<%--        <input type="search" name="searchTel" title="请输入电话" placeholder="电话" value="${searchSysUser.searchTel}"/>&emsp;--%>
+<%--        <input type="submit" value="搜索"/>--%>
+<%--    </form>--%>
     <table class="tablelist">
         <thead>
         <tr>
@@ -126,11 +125,11 @@
     <div class="pagin">
         <div class="message">共<i class="blue">${pageInfo.total}</i>条记录，当前显示第&nbsp;<i class="blue">${pageInfo.pageNum}&nbsp;</i>页</div>
         <ul class="paginList">
-            <li class="paginItem"><a href="/sysUser/list/${pageInfo.isFirstPage?1:pageInfo.prePage}"><span class="pagepre"></span></a></li>
+            <li class="paginItem"><a href="${pageContext.request.contextPath}/sysUser/list/${pageInfo.isFirstPage?1:pageInfo.prePage}"><span class="pagepre"></span></a></li>
             <c:forEach  items="${pageInfo.navigatepageNums}" var="p">
-                <li class="paginItem"><a href="/sysUser/list/${p}">${p}</a></li>
+                <li class="paginItem"><a href="${pageContext.request.contextPath}/sysUser/list/${p}">${p}</a></li>
             </c:forEach>
-            <li class="paginItem"><a href="/sysUser/list/${pageInfo.isLastPage?pageInfo.pages:pageInfo.nextPage}"><span class="pagenxt"></span></a></li>
+            <li class="paginItem"><a href="${pageContext.request.contextPath}/sysUser/list/${pageInfo.isLastPage?pageInfo.pages:pageInfo.nextPage}"><span class="pagenxt"></span></a></li>
         </ul>
     </div>
 

@@ -1,11 +1,12 @@
 package com.rsd.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class Dog {
+public class Student {
 
     private Integer id;
 
@@ -15,6 +16,7 @@ public class Dog {
 
     private Integer age;
 
-    private Date birthTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
 
 }

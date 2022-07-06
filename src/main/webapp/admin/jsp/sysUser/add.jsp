@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -20,11 +20,11 @@
     </ul>
 </div>
 
-<i class="formbody">
+<div class="formbody">
 
     <div class="formtitle"><span>基本信息</span></div>
 
-    <form action="/sysUser/insert" method="post">
+    <form action="${pageContext.request.contextPath}/sysUser/insert" method="post">
         <ul class="forminfo">
             <li><label>登录名称</label><input name="loginName" type="text" class="dfinput" /><i>登录名称只支持手机号</i></li>
             <li><label>密码</label><input name="password" type="text" class="dfinput" /><i>至少包含大小写和数字</i></li>
@@ -48,7 +48,7 @@
         </ul>
     </form>
     <!--
-        <ul class="forminfo">
+    <ul class="forminfo">
         <li><label>文章标题</label><input name="" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
         <li><label>关键字</label><input name="" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>
         <li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>

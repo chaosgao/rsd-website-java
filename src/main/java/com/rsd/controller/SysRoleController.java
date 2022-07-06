@@ -30,7 +30,7 @@ public class SysRoleController {
 
         sysRoleService.deleteById(id);
 
-        return "redirect:/sysRole/list";
+        return "redirect:${pageContext.request.contextPath}/sysRole/list";
     }
     @RequestMapping(value = "toUpdatePage/{id}",method = RequestMethod.GET)
     private ModelAndView toUpdatePage(@PathVariable Integer id){
@@ -44,12 +44,12 @@ public class SysRoleController {
     private String doUpdate(SysRole sysRole){
         sysRoleService.update(sysRole);
 
-        return "redirect:/sysRole/list";
+        return "redirect:${pageContext.request.contextPath}/sysRole/list";
     }
     @RequestMapping(value = "add",method = RequestMethod.POST)
     private String add(SysRole sysRole){
         sysRoleService.insert(sysRole);
 
-        return "redirect:/sysRole/list";
+        return "redirect:${pageContext.request.contextPath}/sysRole/list";
     }
 }

@@ -8,20 +8,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/admin/js/jquery.js"></script>
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery.js"></script>
 
     <script type="text/javascript">
         function toUpdatePage(id) {
-            location.href="/sysRole/toUpdatePage/"+id;
+            location.href="${pageContext.request.contextPath}/sysRole/toUpdatePage/"+id;
         }
         function doDelete(id) {
             if (confirm("您确定删除吗？")){
-                window.location.href = "/sysRole/delete/"+id;
+                window.location.href = "${pageContext.request.contextPath}/sysRole/delete/"+id;
             }
         }
         function toAddPage() {
-            location.href = "/admin/jsp/sysRole/add.jsp";
+            location.href = "${pageContext.request.contextPath}/admin/jsp/sysRole/add.jsp";
 
         }
 
@@ -52,14 +52,14 @@
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">数据表</a></li>
-        <li><a href="#">基本内容</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/index.jsp">首页</a></li>
+        <li><a href="#">系统设置</a></li>
+        <li><a href="#">角色管理</a></li>
     </ul>
 
     <ul class="toolbar1">
         <li onclick="toAddPage();" style="line-height:28px; height:28px;margin-top: 5px;margin-right: 8px;cursor: pointer"; >
-            <span><img src="/admin/images/t01.png" width="18" height="18" /></span>添加</li>
+            <span><img src="${pageContext.request.contextPath}/admin/images/t01.png" width="18" height="18" /></span>添加</li>
     </ul>
 </div>
 
@@ -115,7 +115,7 @@
         <div class="tiptop"><span>提示信息</span><a></a></div>
 
         <div class="tipinfo">
-            <span><img src="/admin/images/ticon.png" /></span>
+            <span><img src="${pageContext.request.contextPath}/admin/images/ticon.png" /></span>
             <div class="tipright">
                 <p>是否确认对信息的修改 ？</p>
                 <cite>如果是请点击确定按钮 ，否则请点取消。</cite>

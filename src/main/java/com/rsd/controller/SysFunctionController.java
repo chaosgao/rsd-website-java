@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("sysFunction")
-public class SysFunctionControlleer {
+public class SysFunctionController {
 
     @Autowired
     private ISysFunctionService sysFunctionService;

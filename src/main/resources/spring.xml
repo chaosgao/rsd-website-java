@@ -51,7 +51,7 @@
         </property>
         <property name="plugins">
             <array>
-<!--                <bean class="com.github.pagehelper.PageInterceptor"/>&lt;!&ndash;分页插件&ndash;&gt;-->
+                <bean class="com.github.pagehelper.PageInterceptor"/><!--分页插件-->
                 <bean class="com.rsd.interceptor.UpdateInterceptor"/> <!--时间自动插入和修改-->
             </array>
         </property>

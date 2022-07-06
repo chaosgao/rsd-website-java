@@ -3,26 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rsd.mapper.ISysUserMapper">
-    <select id="queryList"  resultType="com.rsd.bean.SysUser">
-        select b1.*,b2.name role_name from bu_sys_user b1 left join bu_sys_role b2 on b1.role_id=b2.id
-<!--        <where>-->
-<!--            <if test="searchLoginName!= null and searchLoginName!=">-->
-<!--                and login_name like coucat('%',#{searchLoginName},'%')-->
-<!--            </if>-->
-<!--            <if test="searchRealName!= null and searchRealName!=">-->
-<!--                and real_name like coucat('%',#{searchRealName},'%')-->
-<!--            </if>-->
-<!--            <if test="searchSex!= null and searchSex!=">-->
-<!--                and sex = coucat('%',#{searchSex},'%')-->
-<!--            </if>-->
-<!--            <if test="searchTel!= null and searchTel!= ">-->
-<!--                and tel like coucat('%',#{searchTel},'%')-->
-<!--            </if>-->
-<!--            <if test="searchRoleId!= null and searchRoleId!=">-->
-<!--                and role_id = coucat('%',#{searchRoleId},'%')-->
-<!--            </if>-->
+<!--    <select id="queryList"  resultType="com.rsd.bean.SysUser">-->
+<!--        select b1.*,b2.name role_name from bu_sys_user b1 left join bu_sys_role b2 on b1.role_id=b2.id-->
+<!--&lt;!&ndash;        <where>&ndash;&gt;-->
+<!--&lt;!&ndash;            <if test="searchLoginName!= null and searchLoginName!=">&ndash;&gt;-->
+<!--&lt;!&ndash;                and login_name like coucat('%',#{searchLoginName},'%')&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
+<!--&lt;!&ndash;            <if test="searchRealName!= null and searchRealName!=">&ndash;&gt;-->
+<!--&lt;!&ndash;                and real_name like coucat('%',#{searchRealName},'%')&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
+<!--&lt;!&ndash;            <if test="searchSex!= null and searchSex!=">&ndash;&gt;-->
+<!--&lt;!&ndash;                and sex = coucat('%',#{searchSex},'%')&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
+<!--&lt;!&ndash;            <if test="searchTel!= null and searchTel!= ">&ndash;&gt;-->
+<!--&lt;!&ndash;                and tel like coucat('%',#{searchTel},'%')&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
+<!--&lt;!&ndash;            <if test="searchRoleId!= null and searchRoleId!=">&ndash;&gt;-->
+<!--&lt;!&ndash;                and role_id = coucat('%',#{searchRoleId},'%')&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
 
-<!--        </where>-->
-        order by id desc
-    </select>
+<!--&lt;!&ndash;        </where>&ndash;&gt;-->
+<!--        order by id desc-->
+<!--    </select>-->
 </mapper>

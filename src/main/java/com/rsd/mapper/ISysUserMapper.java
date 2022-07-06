@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ISysUserMapper {
 
-    //    @Select("select b1.*,b2.name role_name from bu_sys_user b1 left join bu_sys_role b2 on b1.role_id=b2.id order by id desc")
+    @Select("select b1.*,b2.name role_name from bu_sys_user b1 left join bu_sys_role b2 on b1.role_id=b2.id order by id desc")
     List<SysUser> queryList();
 
     @Select("select * from bu_sys_user where id = #{id}")

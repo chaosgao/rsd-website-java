@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
-    <link href="/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
     <div class="formtitle"><span>基本信息</span></div>
 
-    <form action="/sysRole/doUpdate" method="post">
+    <form action="${pageContext.request.contextPath}/sysRole/doUpdate" method="post">
         <input type="hidden" name="id" value="${sysRole.id}" />
         <ul class="forminfo">
             <li><label>角色名称</label><input name="name" type="text" class="dfinput" value="${sysRole.name}" /><i>请输入角色名</i></li>

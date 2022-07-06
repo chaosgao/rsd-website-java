@@ -9,20 +9,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
     <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery.js"></script>
-
+    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery-3.6.0.js"></script>
     <script type="text/javascript">
-        function toUpdatePage(id) {
-            location.href="${pageContext.request.contextPath}/sysFunction/toUpdatePage/"+id;
-        }
-        function doDelete(id) {
-            if (confirm("您确定删除吗？")){
-                window.location.href = "${pageContext.request.contextPath}/sysFunction/delete/"+id;
-            }
-        }
-        function toAddPage() {
-            location.href = "${pageContext.request.contextPath}/admin/jsp/sysFunction/add.jsp";
+        $(function () {
+            $.get("${pageContext.request.contextPath}/student/list",function (data) {
 
+                data.forEach(function (student, index) {
+
+                    var str = "";
+                    str += "<tr>";
+                    str += "<td>"+(index+1)+"</td>";
+                    str += "<td>"+student.name+"</td>";
+                    str += "<td>"+student.sex+"</td>";
+                    str += "<td>"+student.age+"</td>";
+                    str += "<td>"+student.createTime+"</td>";
+                    str += "<td>";
+                    str += "<a href='${pageContext.request.contextPath}/admin/jsp/student/form.jsp?id="+student.id+"'>修改</a>";
+                    str += "&emsp;";
+                    str += "<a onClick='javascript:doDelete("+student.id+");'>删除</a>";
+                    str += "</td>";
+                    str += "</tr>";
+
+                    $("tbody").append(str);
+
+                });
+            },"json");
+        });
+
+        function toAddPage() {
+            window.location.href="${pageContext.request.contextPath}/admin/jsp/student/form.jsp";
+        }
+
+        function doDelete(id){
+            if (confirm("您确定删除吗？")){
+                $.get("${pageContext.request.contextPath}/student/deleteById/"+id,function (data,status) {
+                    if (status == "success"){
+                        alert("删除成功！");
+                        window.location.href="${pageContext.request.contextPath}/admin/jsp/student/list.jsp";
+                    } else {
+                        alert("删除失败！");
+                    }
+                });
+
+            }
         }
 
         $(document).ready(function(){
@@ -41,14 +70,12 @@
             $(".cancel").click(function(){
                 $(".tip").fadeOut(100);
             });
-
         });
     </script>
 
 </head>
 
 <body>
-
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -65,51 +92,21 @@
 
 <div class="rightinfo">
 
-    <!--
-    <div class="tools">
-        <ul class="toolbar">
-            <li class="click"><span><img src="/admin/images/t01.png" /></span>添加</li>
-            <li class="click"><span><img src="/admin/images/t02.png" /></span>修改</li>
-            <li><span><img src="/admin/images/t03.png" /></span>删除</li>
-            <li><span><img src="/admin/images/t04.png" /></span>统计</li>
-        </ul>
-        -->
-
-    <table class="tablelist">
+ <table class="tablelist">
         <thead>
         <tr>
             <th>序号</th>
-            <th>功能名称</th>
-            <th>链接</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>创建时间</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
 
-        <c:forEach items="${list}" var="sysFunction" varStatus="i">
-            <tr>
-                <td>${i.count}</td>
-                <td>${sysFunction.name}</td>
-                <td>${sysFunction.url}</td>
-                <td>
-                    <a href="javascript:toUpdatePage(${sysFunction.id});" class="tablelink">修改</a>
-                    <a href="javascript:doDelete(${sysFunction.id});" class="tablelink"> 删除</a>
-                </td>
-            </tr>
-        </c:forEach>
         </tbody>
     </table>
-
-<%--    <div class="pagin">--%>
-<%--        <div class="message">共<i class="blue">${pageInfo.total}</i>条记录，当前显示第&nbsp;<i class="blue">${pageInfo.pageNum}&nbsp;</i>页</div>--%>
-<%--        <ul class="paginList">--%>
-<%--            <li class="paginItem"><a href="/sysUser/list/${pageInfo.isFirstPage?1:pageInfo.prePage}"><span class="pagepre"></span></a></li>--%>
-<%--            <c:forEach  items="${pageInfo.navigatepageNums}" var="p">--%>
-<%--                <li class="paginItem"><a href="/sysUser/list/${p}">${p}</a></li>--%>
-<%--            </c:forEach>--%>
-<%--            <li class="paginItem"><a href="/sysUser/list/${pageInfo.isLastPage?pageInfo.pages:pageInfo.nextPage}"><span class="pagenxt"></span></a></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
 
     <div class="tip">
         <div class="tiptop"><span>提示信息</span><a></a></div>
@@ -134,3 +131,4 @@
 </script>
 </body>
 </html>
+
