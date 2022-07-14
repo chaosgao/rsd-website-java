@@ -3,7 +3,6 @@ package com.rsd.day3;
 import com.rsd.bean.Behavior;
 import com.rsd.bean.SysRole;
 import com.rsd.controller.SysUserController;
-import com.rsd.dao.IBehaviorDAO;
 import com.rsd.service.IBehaviorService;
 import com.rsd.service.ISysRoleService;
 import org.junit.jupiter.api.Test;

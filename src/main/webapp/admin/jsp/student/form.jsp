@@ -27,7 +27,6 @@
                     sex:$("[name='sex']").val(),
                     age:$("[name='age']").val()
                 };
-
                 var methodPath = formData.id==""?"insert":"update";
 
                 $.post("${pageContext.request.contextPath}/student/"+methodPath, formData, function (data, status) {
@@ -60,7 +59,7 @@
     <div class="formtitle"><span>基本信息</span></div>
 
     <form id="myForm">
-        <input type="text" name="id"/>
+        <input type="hidden" name="id"/>
         <ul class="forminfo">
             <li><label>姓名</label><input name="name" type="text" class="dfinput" /><i>姓名不可以为空</i></li>
             <li><label>性别</label><input name="sex" type="text" class="dfinput" /><i>性别不可以为空</i></li>

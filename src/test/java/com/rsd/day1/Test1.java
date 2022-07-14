@@ -15,8 +15,6 @@ public class Test1 {
         }
 
         ISysUserService userService = factory.getBean(SysUserServiceImpl.class);
-//        List<SysUser> list = userService.queryList();
-//        System.out.println(list);
 
         SysUser sysUser1 = userService.getById(2);
         System.out.println(sysUser1);

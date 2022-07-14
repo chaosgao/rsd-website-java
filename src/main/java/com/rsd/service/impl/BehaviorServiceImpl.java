@@ -36,6 +36,12 @@ public class BehaviorServiceImpl implements IBehaviorService {
         return rootList;
     }
 
+    @Override
+    public List<Behavior> queryList() {
+
+        return behaviorDAO.list();
+    }
+
     private void buildTree(List<Behavior> list) {
         if (list != null && !list.isEmpty()) {
             for (Behavior behavior : list) {

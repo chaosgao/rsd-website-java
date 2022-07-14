@@ -71,7 +71,7 @@ public class SysUserController {
     }
     @RequestMapping(value = "toAddPage",method = RequestMethod.GET)
     public ModelAndView toAddPage(){
-        ModelAndView modelAndView = new ModelAndView("/admin/jsp/sysUser/form.jsp");
+        ModelAndView modelAndView = new ModelAndView("/admin/jsp/sysUser/add.jsp");
         List<SysRole> sysRoleList = sysRoleService.queryList();
         modelAndView.addObject("sysRoleList",sysRoleList);
         return modelAndView;

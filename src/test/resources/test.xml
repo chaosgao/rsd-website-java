@@ -23,10 +23,10 @@
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
 
-    <bean id="beforeAdvice" class="com.rsd.aop.BeforeAdvice"/>
-    <bean id="afterAdvice" class="com.rsd.aop.AfterAdvice"/>
-    <bean id="aroundAdvice" class="com.rsd.aop.AroundAdvice"/>
-    <bean id="threeLinks" class="com.rsd.aop.ThreeLinks" />
+    <bean id="beforeAdvice" class="com.rsd.aop1.BeforeAdvice"/>
+    <bean id="afterAdvice" class="com.rsd.aop1.AfterAdvice"/>
+    <bean id="aroundAdvice" class="com.rsd.aop1.AroundAdvice"/>
+    <bean id="threeLinks" class="com.rsd.aop1.ThreeLinks" />
 
     <!-- 使用的是Aspectj的AOP功能，增加AOP注解标签的使用-->
     <aop:config>

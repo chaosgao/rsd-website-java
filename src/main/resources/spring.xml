@@ -23,6 +23,10 @@
     <context:component-scan base-package="com.rsd.controller"/>
     <context:component-scan base-package="com.rsd.dao.impl"/>
 
+    <!--使用的是Aspectj的AOP功能，增加AOP注解标签的使用-->
+    <aop:aspectj-autoproxy />
+    <context:component-scan base-package="com.rsd.aop" />
+
     <!--放行所有静态资源-->
     <mvc:default-servlet-handler/>
     <!-- 加了上一行配置后，controller无法访问，需要增加如下一行配置。-->
@@ -77,5 +81,34 @@
 <!--    <aop:config>-->
 <!--        <aop:advisor advice-ref="ss" pointcut="execution(* com.rsd.service.impl.*.*(..))"/>-->
 <!--    </aop:config>-->
+
+    <bean id="factory1" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://139.9.116.29:61616"/>
+        <property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="factory1"/>
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+
+    <bean id="queue1" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="exam.queue"/>
+    </bean>
+    <bean id="queue2" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="AA.queue"/>
+    </bean>
+
+    <bean id="topic1" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="exam.topic"/>
+    </bean>
+
+    <bean id="topic2" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="AA.topic"/>
+    </bean>
 
 </beans>

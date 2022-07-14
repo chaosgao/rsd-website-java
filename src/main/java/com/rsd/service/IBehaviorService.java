@@ -10,4 +10,6 @@ public interface IBehaviorService {
 
     List<Behavior> treeList2();
 
+    List<Behavior> queryList();
+
 }

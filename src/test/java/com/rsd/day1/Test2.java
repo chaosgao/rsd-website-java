@@ -1,10 +1,7 @@
 package com.rsd.day1;
 
-import com.rsd.bean.SysFunction;
 import com.rsd.bean.SysRole;
-import com.rsd.service.impl.SysFunctionServiceImpl;
 import com.rsd.service.impl.SysRoleServiceImpl;
-import com.rsd.service.impl.SysUserServiceImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Test2 {

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+ //@RestController @Controller和@ResponseBody 合体  只能返回json字符串
 @Controller
 @RequestMapping("student")
 public class StudentController {

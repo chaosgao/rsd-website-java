@@ -2,10 +2,11 @@ package com.rsd.bean;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class SysUser {
+public class SysUser implements Serializable {
 
     private Integer id;
 

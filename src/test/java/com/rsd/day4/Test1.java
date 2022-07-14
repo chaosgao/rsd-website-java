@@ -1,7 +1,7 @@
 package com.rsd.day4;
 
-import com.rsd.bean.Dog;
-import com.rsd.dao.IDogDAO;
+import com.rsd.bean.Student;
+import com.rsd.dao.IStudentDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,38 +15,38 @@ import java.util.List;
 public class Test1 {
 
     @Autowired
-    private IDogDAO dogDAO;
+    private IStudentDAO dogDAO;
 
     @Test
     public void test1(){
-        List<Dog> list = dogDAO.queryList();
+        List<Student> list = dogDAO.queryList();
 
         System.out.println(list);
     }
     @Test
     public void test2(){
-        Dog dog = dogDAO.getById(5);
+        Student dog = dogDAO.getById(5);
 
         System.out.println(dog);
     }
     @Test
     public void test3(){
-        Dog dog = new Dog();
+        Student dog = new Student();
         dog.setName("花姑娘");
         dog.setSex("女");
         dog.setAge(18);
-        dog.setBirthTime(new Date());
+        dog.setCreateTime(new Date());
 
         dogDAO.insert(dog);
     }
     @Test
     public void test4(){
-        Dog dog = new Dog();
+        Student dog = new Student();
         dog.setId(24);
         dog.setName("花姑娘");
         dog.setSex("男");
         dog.setAge(18);
-        dog.setBirthTime(new Date());
+        dog.setCreateTime(new Date());
 
         dogDAO.update(dog);
     }

@@ -50,8 +50,8 @@ public class StudentDAOImpl implements IStudentDAO {
 
     @Override
     public void insert(Student student) {
-        String sql = "insert into bu_student values(null, ? , ? , ? , ?)";
-        jdbcTemplate.update(sql, student.getName(), student.getSex(), student.getAge(), student.getCreateTime());
+        String sql = "insert into bu_student values(null, ? , ? , ? ,?)";
+        jdbcTemplate.update(sql, student.getName(), student.getSex(), student.getAge(),student.getCreateTime());
     }
 
     @Override
@@ -62,7 +62,7 @@ public class StudentDAOImpl implements IStudentDAO {
 
     @Override
     public void update(Student student) {
-        String sql = "update bu_student set name= ?,sex= ?,age= ? where id = ?";
-        jdbcTemplate.update(sql,student.getName(),student.getSex(),student.getAge(),student.getId());
+        String sql = "update bu_student set name= ?,sex= ?,age= ?,create_time=? where id = ?";
+        jdbcTemplate.update(sql,student.getName(),student.getSex(),student.getAge(),student.getCreateTime(),student.getId());
     }
 }
